@@ -55,7 +55,8 @@
 		</div>
 		<div class="row" style="margin-top: 10px;">
 			<div class="col-xs-7">
-				<input type="text" id="txtMessage" class="form-control" placeholder="Type your message here." />
+				<input type="text" id="txtMessage" class="form-control"
+					placeholder="Type your message here." />
 			</div>
 			<div class="col-xs-2">
 				<button id="btnSend" class="btn btn-primary" style="width: 100%;">Send</button>
@@ -75,7 +76,8 @@
 				<div class="modal-body">
 					<div>Please enter your desired nickname:</div>
 					<div style="margin-top: 5px;">
-						<input type="text" id="nickname" class="form-control" style="width: 200px;" placeholder="Nickname..." />
+						<input type="text" id="nickname" class="form-control"
+							style="width: 200px;" placeholder="Nickname..." />
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -93,8 +95,7 @@
 			console.log("opening socket");
 			//on http server use document.domain instead od "localhost"
 			//Start the websocket client
-			socket = new SockJS("http://" + document.domain
-					+ ":8080/chat/chat");
+			socket = new SockJS("http://" + document.domain + ":8080/chat/chat");
 
 			//When the connection is opened, login.
 			socket.onopen = function() {

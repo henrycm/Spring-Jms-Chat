@@ -6,7 +6,6 @@ import javax.jms.Queue;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.RedeliveryPolicy;
 import org.apache.activemq.command.ActiveMQQueue;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
@@ -63,14 +62,8 @@ public class JmsConfiguration {
 		container.setConnectionFactory(connectionFactory);
 		container.setDestinationName(QUEUE_NAME);
 		container.setSessionTransacted(true);
+		System.out.println("JMS listener registered!");
 		return container;
 	}
 
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.register(JmsConfiguration.class);
-		ctx.refresh();
-		SimpleMessageListenerContainer myBean = ctx.getBean(SimpleMessageListenerContainer.class);
-		System.out.println(myBean.toString());
-	}
 }
